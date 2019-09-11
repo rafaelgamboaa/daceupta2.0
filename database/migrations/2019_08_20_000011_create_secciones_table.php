@@ -15,8 +15,10 @@ class CreateSeccionesTable extends Migration
     {
         Schema::create('secciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('numero');
-            $table->string('descripcion');
+            $table->integer('seccion');
+            $table->string('comentario');
+            $table->unsignedBigInteger('id_trayecto')->unsigned();
+            $table->foreign('id_trayecto')->references('id')->on('trayectos')->onDelete('cascade');
             $table->timestamps();
         });
     }

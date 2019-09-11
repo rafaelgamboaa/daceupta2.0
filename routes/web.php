@@ -31,4 +31,19 @@ Route::group(['middleware' => 'auth'], function () {
    Route::get('carreras_create','CarrerasController@store')->name('carreras_create');
    Route::get('/carreras_delete/{id}', 'CarrerasController@destroy')->name('carreras_delete');
    Route::get('/carreras_edit', 'CarrerasController@update')->name('carreras_edit');
+    //PERIODOS
+    Route::resource('periodos','PeriodosController');
+    Route::get('periodos_create','PeriodosController@store')->name('periodos_create');
+    Route::get('/periodos_delete/{id}', 'PeriodosController@destroy')->name('periodos_delete');
+    Route::get('/periodos_edit', 'PeriodosController@update')->name('periodos_edit');
+    //AREAS
+    Route::resource('areas','AreasController');
+    Route::get('areas_create','AreasController@store')->name('areas_create');
+    Route::get('/areas_delete/{id}', 'AreasController@destroy')->name('areas_delete');
+    Route::get('/areas_edit', 'AreasController@update')->name('areas_edit');
+    //INSCRIPCION
+    Route::resource('inscripcion','InscripcionController');
+    Route::get('inscripcion_create','InscripcionController@store')->name('inscripcion_create');
+    Route::get('/inscripcion_delete/{id}', 'InscripcionController@destroy')->name('inscripcion_delete');
+    Route::get('/inscripcion_edit', 'InscripcionController@update')->name('inscripcion_edit');
 });

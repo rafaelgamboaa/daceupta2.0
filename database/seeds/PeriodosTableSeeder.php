@@ -1,0 +1,105 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class PeriodosTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('periodos')->insert([
+            'periodo'=>'2017',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2017',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2017',
+            'trimestre'=>'3',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2018',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2018',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2018',
+            'trimestre'=>'3',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2019',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2019',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2019',
+            'trimestre'=>'3',
+            'status'=>'si'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2020',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2020',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2020',
+            'trimestre'=>'3',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2021',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2021',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2021',
+            'trimestre'=>'3',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2022',
+            'trimestre'=>'1',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2022',
+            'trimestre'=>'2',
+            'status'=>'no'
+        ]);
+        DB::table('periodos')->insert([
+            'periodo'=>'2022',
+            'trimestre'=>'3',
+            'status'=>'no'
+        ]);
+    }
+}
