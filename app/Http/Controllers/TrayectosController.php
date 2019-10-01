@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Trayectos;
 use Illuminate\Http\Request;
+use App\Carreras;
 
 class TrayectosController extends Controller
 {
@@ -14,7 +15,9 @@ class TrayectosController extends Controller
      */
     public function index()
     {
-        //
+        $trayectos=Trayectos::all();
+        $carreras=Carreras::all();
+        return view('admin.trayectos.index', compact('trayectos','carreras'));
     }
 
     /**
@@ -35,7 +38,13 @@ class TrayectosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        //$create=Carreras::create($request->all());
+        $create=Trayectos::create([
+            'trayecto'=>$request->trayecto,
+            'id_carrera'=>$request->id_carrera,
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +78,12 @@ class TrayectosController extends Controller
      */
     public function update(Request $request, Trayectos $trayectos)
     {
-        //
+        $trayectos=Trayectos::find($request->id);
+        $trayectos->trayecto=$request->trayecto;
+        $trayectos->id_carrera=$request->id_carrera;
+        $trayectos->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -78,8 +92,11 @@ class TrayectosController extends Controller
      * @param  \App\Trayectos  $trayectos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Trayectos $trayectos)
+    public function destroy(Trayectos $trayectos, $id)
     {
-        //
+        $trayectos = Trayectos::find($id);
+        $trayectos->delete();
+
+        return redirect()->back();
     }
 }

@@ -14,7 +14,8 @@ class PersonalHasAsignaturaController extends Controller
      */
     public function index()
     {
-        //
+        $personal=PersonalHasAsignaturaController::all();
+        return view('admin.personal.index', compact('personal'));
     }
 
     /**

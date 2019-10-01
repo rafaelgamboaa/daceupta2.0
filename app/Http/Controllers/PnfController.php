@@ -35,7 +35,8 @@ class PnfController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create=Pnf::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +70,12 @@ class PnfController extends Controller
      */
     public function update(Request $request, Pnf $pnf)
     {
-        //
+        //dd($request->all());
+        $pnf=Pnf::find($request->id2);
+        $pnf->codigo=$request->codigo;
+        $pnf->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -78,8 +84,11 @@ class PnfController extends Controller
      * @param  \App\Pnf  $pnf
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pnf $pnf)
+    public function destroy(Pnf $pnf, $id)
     {
-        //
+        $pnf = Pnf::find($id);
+        $pnf->delete();
+
+        return redirect()->back();
     }
 }

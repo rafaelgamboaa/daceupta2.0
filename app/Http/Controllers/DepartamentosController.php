@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Departamentos;
 use Illuminate\Http\Request;
+use App\Pnf;
 
 class DepartamentosController extends Controller
 {
@@ -15,7 +16,8 @@ class DepartamentosController extends Controller
     public function index()
     {
         $departamentos=Departamentos::all();
-        return view('admin.departamentos.index', compact('departamentos'));
+        $pnf=Pnf::all();
+        return view('admin.departamentos.index', compact('departamentos','pnf'));
     }
 
     /**

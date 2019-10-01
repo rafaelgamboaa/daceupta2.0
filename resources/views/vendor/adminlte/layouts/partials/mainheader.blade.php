@@ -1,4 +1,5 @@
 <!-- Main Header -->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <header class="main-header">
 
     <!-- Logo -->
@@ -7,6 +8,7 @@
         <span class="logo-mini"><b>A</b>LT</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>UPTA</b></span>
+        <hr>
     </a>
 
     <!-- Header Navbar -->
@@ -122,7 +124,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
-                            <li class="user-header">
+                            <li class="user-header" style="font-family: 'Roboto', sans-serif;">
                                 <img src="{{ Gravatar::get($user->email) }}" class="img-circle" alt="User Image" />
                                 <p>
                                     <span data-toggle="tooltip" title="{{ Auth::user()->name }}">{{ Auth::user()->name }}</span>

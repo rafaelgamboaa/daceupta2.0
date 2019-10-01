@@ -16,8 +16,8 @@ class CreateTrayectosTable extends Migration
         Schema::create('trayectos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('trayecto');
-            $table->unsignedBigInteger('id_carreras')->unsigned();
-            $table->foreign('id_carreras')->references('id')->on('carreras')->onDelete('cascade');
+            $table->unsignedBigInteger('id_carrera')->unsigned();
+            $table->foreign('id_carrera')->references('id')->on('carreras')->onDelete('cascade');
             $table->timestamps();
         });
     }

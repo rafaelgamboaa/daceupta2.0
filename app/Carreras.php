@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Departamentos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,10 +11,10 @@ class Carreras extends Model
     protected $fillable= ['id','codigo','carrera','id_departamento','id_pnf','status'];
 
     public function departamento(){
-        return $this->belognsTo('App/Departamentos','id_departamento','id');
+        return $this->belongsTo('App\Departamentos','id_departamento','id');
     }
 
     public function pnf(){
-        return $this->belognsTo('App/Pnf','id_pnf','id');
+        return $this->belongsTo('App\Pnf','id_pnf','id');
     }
 }

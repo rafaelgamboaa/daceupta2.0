@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Materias;
 use Illuminate\Http\Request;
+use App\Trayectos;
 
 class MateriasController extends Controller
 {
@@ -14,7 +15,9 @@ class MateriasController extends Controller
      */
     public function index()
     {
-        //
+        $materias=Materias::all();
+        $trayectos=Trayectos::all();
+        return view('admin.materias.index', compact('materias','trayectos'));
     }
 
     /**
@@ -35,7 +38,8 @@ class MateriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $create=Materias::create($request->all());
+        return redirect()->back();
     }
 
     /**
@@ -57,7 +61,7 @@ class MateriasController extends Controller
      */
     public function edit(Materias $materias)
     {
-        //
+        
     }
 
     /**
@@ -69,7 +73,17 @@ class MateriasController extends Controller
      */
     public function update(Request $request, Materias $materias)
     {
-        //
+        $materias=Materias::find($request->id);
+        $materias->codigo=$request->codigo;
+        $materias->materia=$request->materia;
+        $materias->unidad_c=$request->unidad_c;
+        $materias->num_fases=$request->num_fases;
+        $materias->malla=$request->malla;
+        $materias->id_trayecto=$request->id_trayecto;
+        $materias->status=$request->status;
+        $materias->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -78,8 +92,11 @@ class MateriasController extends Controller
      * @param  \App\Materias  $materias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Materias $materias)
+    public function destroy(Materias $materias, $id)
     {
-        //
+        $materias = Materias::find($id);
+        $materias->delete();
+
+        return redirect()->back();
     }
 }

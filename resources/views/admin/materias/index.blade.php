@@ -7,7 +7,7 @@
 
 @section('main-content')
     <div class="content-wrapper"> 
-        <a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nuevo periodo</button></a>
+        <a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nueva materia</button></a>
         <section class="content-header">
             @yield('contentheader_tittle','Materias')
         </section>
@@ -61,7 +61,7 @@
                 <h4>Nueva Materia</h4>
             </div>
             <div class="modal-body">
-                <form action="{{ url('/periodos_create')}}" method="GET">
+                <form action="{{ url('/materias_create')}}" method="GET">
                    @include('admin.materias.partials.create-fields') 
                     <button type="submit" class="btn btn-success">Enviar</button>
                 </form>
@@ -80,7 +80,7 @@
                 <h4>Editar Materia</h4>
             </div>
             <div class="modal-body">
-                <form action="{{ url('/periodos_edit')}}" method="GET">
+                <form action="{{ url('/materias_edit')}}" method="GET">
                    @include('admin.materias.partials.edit-fields') 
                    <input type="hidden" id="id" name="id">
                     <button type="submit" class="btn btn-success">Enviar</button>
@@ -94,10 +94,14 @@
   </div>
 
 <script type="text/javascript">
-    function editar(id,periodo,trimestre,status){
+    function editar(id,codigo,materia,unidad_c,num_fases,malla,id_trayecto,status){
         $('#id').val(id)
-        $('#p').val(periodo)
-        $('#t').val(trimestre)
+        $('#co').val(codigo)
+        $('#ma').val(materia)
+        $('#un').val(unidad_c)
+        $('#nu').val(num_fases)
+        $('#mall').val(malla)
+        $('#i').val(id_trayecto)
         $('#s').val(status)
     }
 </script>  

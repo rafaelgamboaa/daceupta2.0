@@ -46,4 +46,30 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('inscripcion_create','InscripcionController@store')->name('inscripcion_create');
     Route::get('/inscripcion_delete/{id}', 'InscripcionController@destroy')->name('inscripcion_delete');
     Route::get('/inscripcion_edit', 'InscripcionController@update')->name('inscripcion_edit');
+    //MATERIAS
+    Route::resource('materias','MateriasController');
+    Route::get('materias_create','MateriasController@store')->name('materias_create');
+    Route::get('/materias_delete/{id}', 'MateriasController@destroy')->name('materias_delete');
+    Route::get('/materias_edit', 'MateriasController@update')->name('materias_edit');
+    //PNF
+    Route::resource('pnf','PnfController');
+    Route::get('pnf_create','PnfController@store')->name('pnf_create');
+    Route::get('/pnf_delete/{id}', 'PnfController@destroy')->name('pnf_delete');
+    Route::get('/pnf_edit', 'PnfController@update')->name('pnf_edit');
+    //TRAYECTOS
+    Route::resource('trayectos','TrayectosController');
+    Route::get('trayectos_create','TrayectosController@store')->name('trayectos_create');
+    Route::get('/trayectos_delete/{id}', 'TrayectosController@destroy')->name('trayectos_delete');
+    Route::get('/trayectos_edit', 'TrayectosController@update')->name('trayectos_edit');
+    //ESTUDIANTES
+    Route::resource('datosbasicos','DatosbasicosController');
+    Route::get('datosbasicos_create','DatosbasicosController@store')->name('datosbasicos_create');
+    Route::get('/datosbasicos_delete/{id}', 'DatosbasicosController@destroy')->name('datosbasicos_delete');
+    Route::get('/datosbasicos_edit', 'DatosbasicosController@update')->name('datosbasicos_edit');
+     //CARGA ACADEMICA
+     Route::resource('personal','PersonalHasAsignaturaController');
+     Route::get('personal_create','PersonalHasAsignaturaController@store')->name('personal_create');
+     Route::get('/personal_delete/{id}','PersonalHasAsignaturaController@destroy')->name('personal_delete');
+     Route::get('/personal_edit','PersonalHasAsignaturaController@update')->name('personal_edit');
 });
+

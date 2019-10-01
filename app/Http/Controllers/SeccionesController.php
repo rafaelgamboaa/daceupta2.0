@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Secciones;
+use App\Trayectos;
 use Illuminate\Http\Request;
 
 class SeccionesController extends Controller
@@ -15,7 +16,8 @@ class SeccionesController extends Controller
     public function index()
     {
         $secciones=Secciones::all();
-        return view('admin.secciones.index', compact('secciones'));
+        $trayectos=Trayectos::all();
+        return view('admin.secciones.index', compact('secciones','trayectos'));
     }
 
     /**
@@ -36,7 +38,11 @@ class SeccionesController extends Controller
      */
     public function store(Request $request)
     {
-        $create=Secciones::create($request->all());
+        $create=Secciones::create([
+            'seccion'=>$request->seccion,
+            'comentario'=>$request->comentario,
+            'id_trayecto'=>$request->id_trayecto,
+        ]);
         return redirect()->back();
     }
 
@@ -72,8 +78,9 @@ class SeccionesController extends Controller
     public function update(Request $request, Secciones $secciones)
     {
         $secciones=Secciones::find($request->id);
-        $secciones->numero=$request->numero;
-        $secciones->descripcion=$request->descripcion;
+        $secciones->seccion=$request->seccion;
+        $secciones->comentario=$request->comentario;
+        $secciones->id_trayecto=$request->id_trayecto;
         $secciones->save();
 
         return redirect()->back();

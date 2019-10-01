@@ -14,7 +14,8 @@ class InscripcionController extends Controller
      */
     public function index()
     {
-        //
+        $inscripcion=Inscripcion::all();
+        return view('admin.inscripcion.index', compact('inscripcion'));
     }
 
     /**

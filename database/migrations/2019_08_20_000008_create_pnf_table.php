@@ -16,6 +16,7 @@ class CreatePnfTable extends Migration
         Schema::create('pnf', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo');
+            $table->enum('status',['si','no']);
             $table->timestamps();
         });
     }

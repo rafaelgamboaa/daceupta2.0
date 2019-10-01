@@ -10,6 +10,6 @@ class Secciones extends Model
     protected $fillable= ['id','seccion','comentario','id_trayecto'];
 
     public function trayecto(){
-        return $this->BelognsTo('App/Trayectos','id_trayecto','id');
+        return $this->BelongsTo('App\Trayectos','id_trayecto','id');
     }
 }

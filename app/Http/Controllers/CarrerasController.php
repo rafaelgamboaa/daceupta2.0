@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Carreras;
 use Illuminate\Http\Request;
+use App\Departamentos;
+use App\Pnf;
 
 class CarrerasController extends Controller
 {
@@ -15,7 +17,9 @@ class CarrerasController extends Controller
     public function index()
     {
         $carreras=Carreras::all();
-        return view('admin.carreras.index', compact('carreras'));
+        $departamentos=Departamentos::all();
+        $pnf=Pnf::all();
+        return view('admin.carreras.index', compact('carreras','departamentos','pnf'));
     }
 
     /**
@@ -36,7 +40,15 @@ class CarrerasController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $create=Carreras::create($request->all());
+        $create=Carreras::create([
+            'codigo'=>$request->codigo,
+            'carrera'=>$request->carrera,
+            'id_departamento'=>$request->id_departamento,
+            'id_pnf'=>$request->id_pnf,
+            'status'=>'si'
+        ]);
         return redirect()->back();
     }
 
@@ -72,8 +84,11 @@ class CarrerasController extends Controller
     public function update(Request $request, Carreras $carreras)
     {
         $carreras=Carreras::find($request->id);
-        $carreras->nombre=$request->nombre;
         $carreras->codigo=$request->codigo;
+        $carreras->carrera=$request->carrera;
+        $carreras->id_departamento=$request->id_departamento;
+        $carreras->id_pnf=$request->id_pnf;
+        $carreras->status= 'si';
         $carreras->save();
 
         return redirect()->back();
