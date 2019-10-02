@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\personal_has_asignatura;
 use Illuminate\Http\Request;
+use App\Datosbasicos_Docente;
+use App\Materias;
+use App\Sede;
+use App\Turnos;
+use App\Secciones;
+use App\Periodos;
 
 class PersonalHasAsignaturaController extends Controller
 {
@@ -14,8 +20,14 @@ class PersonalHasAsignaturaController extends Controller
      */
     public function index()
     {
-        $personal=PersonalHasAsignaturaController::all();
-        return view('admin.personal.index', compact('personal'));
+        $personal=personal_has_asignatura::all();
+        $docente=Datosbasicos_Docente::all();
+        $materias=Materias::all();
+        $sede=Sede::all();
+        $turno=Turnos::all();
+        $seccion=Secciones::all();
+        $periodos=Periodos::all();
+        return view('admin.personal.index', compact('personal','docente','materias','sede','turno','seccion','periodos'));
     }
 
     /**
@@ -36,7 +48,18 @@ class PersonalHasAsignaturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //dd($request->all());
+         $create=personal_has_asignatura::create($request->all());
+         $create=personal_has_asignatura::create([
+             'id_docente'=>$request->id_docente,
+             'id_materias'=>$request->id_materias,
+             'id_sede'=>$request->id_sede,
+             'id_turno'=>$request->id_turno,
+             'id_seccion'=>$request->id_seccion,
+             'id_periodo'=>$request->id_periodo,
+             'status'=>'si'
+         ]);
+         return redirect()->back();
     }
 
     /**

@@ -1,60 +1,62 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Departamentos
+	Carreras
 @endsection
 
-
 @section('main-content')
-    <div class="content-wrapper"> 
-        <a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nueva materia</button></a>
-        <section class="content-header">
-            @yield('contentheader_tittle','Materias')
-        </section>
-	    <div class="container-fluid spark-screen">
-            <br>
-            <br>
-	    	<div class="row">
-	    		<div class="col-md-8 col-md-offset-2">
+<br>    
+<h3 style="text-align:center">Materias</h3>
+<br>
+                <!-- Default box -->
+                <div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nueva materia</button></a></h3>
 
-	    			<table class="table table-bordered">
-                        <thead>
-                            <tr> 
-                                <th>Codigo</th>
-                                <th>Materia</th>
-                                <th>UC</th>
-                                <th>N Fases</th>
-                                <th>Malla</th>
-                                <th>Trayecto</th>
-                                <th>Status</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($materias as $key)
-                                <tr> 
-                                    <td>{{$key->codigo}}</td>
-                                    <td>{{$key->materia}}</td>
-                                    <td>{{$key->unidad_c}}</td>
-                                    <td>{{$key->num_fases}}</td>
-                                    <td>{{$key->malla}}</td>
-                                    <td>{{$key->id_trayecto}}</td>
-                                    <td>{{$key->status}}</td>
-                                    <td>
-                                        <a href="#"><button onclick="editar('{{ $key->id }}','{{ $key->codigo }}','{{ $key->materia }}','{{ $key->unidad_c }}','{{ $key->num_fases }}','{{ $key->malla }}','{{ $key->id_trayecto }}','{{ $key->status }}')" data-toggle="modal" data-target="#myModal2" class="btn btn-default"><i class="fa fa-plus"></i>Editar</button></a>
-                                        <a href="{{ route('materias_delete', ['id' => $key->id] ) }}" class="btn btn-danger">Eliminar</a>
-                                    </td>
-                                </tr>
-                            @endforeach()
-                        </tbody>
-                    </table>
-
-	    		</div>
-	    	</div>
-	    </div>
-    </div>
-
-    <div id="myModal" class="modal fade" role="dialog">
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+								<i class="fa fa-minus"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+                        <table class="table table-bordered">
+                                <thead>
+                                    <tr> 
+                                        <th>Codigo</th>
+                                        <th>Materia</th>
+                                        <th>UC</th>
+                                        <th>N Fases</th>
+                                        <th>Malla</th>
+                                        <th>Trayecto</th>
+                                        <th>Status</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($materias as $key)
+                                        <tr> 
+                                            <td>{{$key->codigo}}</td>
+                                            <td>{{$key->materia}}</td>
+                                            <td>{{$key->unidad_c}}</td>
+                                            <td>{{$key->num_fases}}</td>
+                                            <td>{{$key->malla}}</td>
+                                            <td>{{$key->id_trayecto}}</td>
+                                            <td>{{$key->status}}</td>
+                                            <td>
+                                                <a href="#"><button onclick="editar('{{ $key->id }}','{{ $key->codigo }}','{{ $key->materia }}','{{ $key->unidad_c }}','{{ $key->num_fases }}','{{ $key->malla }}','{{ $key->id_trayecto }}','{{ $key->status }}')" data-toggle="modal" data-target="#myModal2" class="btn btn-default"><i class="fa fa-plus"></i>Editar</button></a>
+                                                <a href="{{ route('materias_delete', ['id' => $key->id] ) }}" class="btn btn-danger">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach()
+                                </tbody>
+                            </table>
+					</div>
+					<!-- /.box-body -->
+		        </div>
+				<!-- /.box -->
+ 
+            <!--CARRERAS-->
+            <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,7 +74,6 @@
         </div>
     </div>
   </div>
-
   <div id="myModal2" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,6 +94,7 @@
     </div>
   </div>
 
+
 <script type="text/javascript">
     function editar(id,codigo,materia,unidad_c,num_fases,malla,id_trayecto,status){
         $('#id').val(id)
@@ -106,3 +108,5 @@
     }
 </script>  
 @endsection
+
+

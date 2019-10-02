@@ -11,18 +11,18 @@ class Datosbasicos_docente extends Model
 
 
     public function area(){
-        return $this->BelognsTo('App/Areas','id_area','id');
+        return $this->BelongsTo('App\Areas','id_area','id');
     }
 
     public function areacon(){
-        return $this->BelognsTo('App/Areas','id_areacon','id');
+        return $this->BelongsTo('App\Areas','id_areacon','id');
     }
 
     public function dedicacion(){
-        return $this->BelognsTo('App/Dedicacion','id_dedicacion','id');
+        return $this->BelongsTo('App\Dedicacion','id_dedicacion','id');
     }
 
     public function carrera(){
-        return $this->BelognsTo('App/Carreras','id_carrera','id');
+        return $this->BelongsTo('App\Carreras','id_carrera','id');
     }
 }

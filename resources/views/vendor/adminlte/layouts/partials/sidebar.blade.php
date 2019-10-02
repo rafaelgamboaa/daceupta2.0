@@ -45,6 +45,7 @@
                     <li><a href="{{url('carreras') }}">Carreras</a></li>
                     <li><a href="{{url('materias') }}">Materias</a></li>
                     <li><a href="{{url('periodos') }}">Periodos</a></li>
+                    <li><a href="{{url('docente') }}">Docentes</a></li>
                     <li><a href="{{url('areas') }}">Areas</a></li>
                     <li><a href="{{url('trayectos') }}">Trayectos</a></li>
                     <li><a href="{{url('datosbasicos') }}">Estudiantes</a></li>

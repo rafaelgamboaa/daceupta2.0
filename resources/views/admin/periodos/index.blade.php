@@ -1,33 +1,35 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Departamentos
+	Carreras
 @endsection
 
-
 @section('main-content')
-    <div class="content-wrapper"> 
-        <a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nuevo periodo</button></a>
-        <section class="content-header">
-            @yield('contentheader_tittle','Periodos')
-        </section>
-	    <div class="container-fluid spark-screen">
-            <br>
-            <br>
-	    	<div class="row">
-	    		<div class="col-md-8 col-md-offset-2">
+<br>    
+<h3 style="text-align:center">Periodos</h3>
+<br>
+                <!-- Default box -->
+                <div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nuevo periodo</button></a></h3>
 
-	    			<table class="table table-bordered">
-                        <thead>
-                            <tr> 
-                                <th>Periodo</th>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+								<i class="fa fa-minus"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+                        <table class="table table-bordered">
+                                <thead>
+                                    <tr> 
+                                    <th>Periodo</th>
                                 <th>Trimestre</th>
                                 <th>Status</th>
                                 <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($periodos as $key)
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($periodos as $key)
                                 <tr> 
                                     <td>{{$key->periodo}}</td>
                                     <td>{{$key->trimestre}}</td>
@@ -38,15 +40,15 @@
                                     </td>
                                 </tr>
                             @endforeach()
-                        </tbody>
-                    </table>
-
-	    		</div>
-	    	</div>
-	    </div>
-    </div>
-
-    <div id="myModal" class="modal fade" role="dialog">
+                                </tbody>
+                            </table>
+					</div>
+					<!-- /.box-body -->
+		        </div>
+				<!-- /.box -->
+ 
+            <!--CARRERAS-->
+            <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,7 +66,6 @@
         </div>
     </div>
   </div>
-
   <div id="myModal2" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -85,12 +86,15 @@
     </div>
   </div>
 
-<script type="text/javascript">
+
+
+  <script type="text/javascript">
     function editar(id,periodo,trimestre,status){
         $('#id').val(id)
         $('#p').val(periodo)
         $('#t').val(trimestre)
         $('#s').val(status)
     }
-</script>  
+</script>   
 @endsection
+

@@ -19,7 +19,7 @@ class CreateDatosbasicosDocenteTable extends Migration
             $table->integer('cedula');
             $table->string('nombres');
             $table->string('apellidos');
-            $table->integer('telefono');
+            $table->unsignedBigInteger('telefono');
             $table->string('direccion');
             $table->string('correo');
             $table->unsignedBigInteger('id_area')->unsigned();

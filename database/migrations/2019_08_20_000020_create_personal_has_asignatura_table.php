@@ -21,7 +21,6 @@ class CreatePersonalHasAsignaturaTable extends Migration
             $table->unsignedBigInteger('id_turno')->unsigned();
             $table->unsignedBigInteger('id_seccion')->unsigned();
             $table->unsignedBigInteger('id_periodo')->unsigned();
-            $table->string('carga_docente');
             $table->enum('status',['si','no']);
             $table->foreign('id_docente')->references('id')->on('datosBasicos_docente')->onDelete('cascade');
             $table->foreign('id_materias')->references('id')->on('materias')->onDelete('cascade');

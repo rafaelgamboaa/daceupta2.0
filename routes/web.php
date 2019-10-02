@@ -71,5 +71,10 @@ Route::group(['middleware' => 'auth'], function () {
      Route::get('personal_create','PersonalHasAsignaturaController@store')->name('personal_create');
      Route::get('/personal_delete/{id}','PersonalHasAsignaturaController@destroy')->name('personal_delete');
      Route::get('/personal_edit','PersonalHasAsignaturaController@update')->name('personal_edit');
+      //Docentes
+      Route::resource('docente','DatosbasicosDocenteController');
+      Route::get('docente_create','DatosbasicosDocenteController@store')->name('docente_create');
+      Route::get('/docente_delete/{id}','DatosbasicosDocenteController@destroy')->name('docente_delete');
+      Route::get('/docente_edit','DatosbasicosDocenteController@update')->name('docente_edit');
 });
 

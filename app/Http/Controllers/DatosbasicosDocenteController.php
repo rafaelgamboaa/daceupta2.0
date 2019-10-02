@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Areas;
+use App\Dedicacion;
+use App\Carreras;
 use App\Datosbasicos_docente;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,11 @@ class DatosbasicosDocenteController extends Controller
      */
     public function index()
     {
-        //
+        $docente=Datosbasicos_docente::all();
+        $carreras=Carreras::all();
+        $areas=Areas::all();
+        $dedicacion=Dedicacion::all();
+        return view('admin.docentes.index', compact('docente','carreras','areas','dedicacion'));
     }
 
     /**
@@ -35,7 +42,22 @@ class DatosbasicosDocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $create=Datosbasicos_docente::create($request->all());
+        $create=Datosbasicos_docente::create([
+            'nacio'=>$request->nacio,
+            'cedula'=>$request->cedula,
+            'nombres'=>$request->nombres,
+            'apellidos'=>$request->apellidos,
+            'telefono'=>$request->telefono,
+            'direccion'=>$request->direccion,
+            'correo'=>$request->correo,
+            'id_area'=>$request->id_area,
+            'id_dedicacion'=>$request->id_dedicacion,
+            'id_carrera'=>$request->id_carrera,
+            'status'=>'si'
+        ]);
+        return redirect()->back();
     }
 
     /**

@@ -1,31 +1,33 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-	Departamentos
+	Carreras
 @endsection
 
-
 @section('main-content')
-    <div class="content-wrapper"> 
-        <a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nueva carrera</button></a>
-        <section class="content-header">
-            @yield('contentheader_tittle','Areas')
-        </section>
-	    <div class="container-fluid spark-screen">
-            <br>
-            <br>
-	    	<div class="row">
-	    		<div class="col-md-8 col-md-offset-2">
+<br>    
+<h3 style="text-align:center">Areas</h3>
+<br>
+                <!-- Default box -->
+                <div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title"><a href="#"><button data-toggle="modal" data-target="#myModal" class="btn btn-success" style="important! float:right, padding-bottom:5px;"><i class="fa fa-plus"></i>Agregar nueva area</button></a></h3>
 
-	    			<table class="table table-bordered">
-                        <thead>
-                            <tr> 
-                                <th>Area</th>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+								<i class="fa fa-minus"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+                        <table class="table table-bordered">
+                                <thead>
+                                    <tr> 
+                                    <th>Area</th>
                                 <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($areas as $key)
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($areas as $key)
                                 <tr> 
                                     <td>{{$key->area}}</td>
                                     <td>
@@ -34,15 +36,15 @@
                                     </td>
                                 </tr>
                             @endforeach()
-                        </tbody>
-                    </table>
-
-	    		</div>
-	    	</div>
-	    </div>
-    </div>
-
-    <div id="myModal" class="modal fade" role="dialog">
+                                </tbody>
+                            </table>
+					</div>
+					<!-- /.box-body -->
+		        </div>
+				<!-- /.box -->
+ 
+            <!--CARRERAS-->
+            <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -81,7 +83,8 @@
     </div>
   </div>
 
-<script type="text/javascript">
+
+  <script type="text/javascript">
     function editar(id,area){
         $('#id').val(id)
         $('#a').val(area)
